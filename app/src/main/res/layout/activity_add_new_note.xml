@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    >
+    <data>
+        <variable
+            name="NoteItem"
+            type="com.example.takenotes.Note" />
+        <variable
+            name="btn"
+            type="com.example.takenotes.AddNewNoteClickHandler" />
+    </data>
+
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AddNewNote">
+
+
+
+        <RelativeLayout
+            android:id="@+id/RVitem"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="#F7DEE3"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <EditText
+                android:hint="Note Name"
+                android:id="@+id/NoteTitle"
+                android:layout_width="0dp"
+                android:maxLines="2"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:fontFamily="@font/inter_regular"
+                android:padding="12dp"
+                android:background="@null"
+                android:textColorHint="@color/black"
+                android:text="@={NoteItem.noteName}"
+                android:textColor="#180E25"
+                android:textSize="28sp" />
+
+            <RelativeLayout
+                android:id="@+id/relativeLayout"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:background="@color/black"
+                android:layout_below="@id/NoteTitle"
+                />
+
+
+            <EditText
+                android:id="@+id/NoteContent"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:background="@null"
+                android:layout_below="@+id/relativeLayout"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:fontFamily="@font/inter_regular"
+                android:hint="Note Content"
+                android:scrollbars="vertical"
+                android:textColorHint="@color/black"
+                android:gravity="top|start"
+                android:cursorVisible="true"
+                android:paddingStart="12dp"
+                android:paddingTop="4dp"
+                android:paddingEnd="12dp"
+                android:paddingBottom="12dp"
+                android:text="@={NoteItem.noteContent}"
+                android:textColor="#180E25"
+                android:textSize="18sp" />
+
+
+        </RelativeLayout>
+
+
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/submit"
+        android:onClick="@{btn::onSubmitClickHandler}"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_margin="16dp"
+        android:src="@drawable/baseline_save_24"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
